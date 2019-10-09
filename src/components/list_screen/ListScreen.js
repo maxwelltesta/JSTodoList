@@ -19,6 +19,13 @@ export class ListScreen extends Component {
             return this.props.todoList.owner;
         }
     }
+    onNameChange = () => {
+        this.props.todoList.name = this.value;
+        this.props.setState({currentList: this.props.todoList});
+    }
+    onOwnerChange() {
+
+    }
     render() {
         return (
             <div id="todo_list">
@@ -27,17 +34,19 @@ export class ListScreen extends Component {
                 <div id="list_details_container">
                     <div id="list_details_name_container" className="text_toolbar">
                         <span id="list_name_prompt">Name:</span>
-                        <input 
-                            value={this.getListName()} 
+                        <input  
+                            defaultValue={this.getListName()} 
                             type="text" 
-                            id="list_name_textfield" />
+                            id="list_name_textfield"
+                            onChange={this.onNameChange.bind(this)} />
                     </div>
                     <div id="list_details_owner_container" className="text_toolbar">
                         <span id="list_owner_prompt">Owner:</span>
                         <input 
-                            value={this.getListOwner()}
+                            defaultValue={this.getListOwner()}
                             type="text" 
-                            id="list_owner_textfield" />
+                            id="list_owner_textfield"
+                            onChange={this.onOwnerChange} />
                     </div>
                 </div>
                 <ListItemsTable todoList={this.props.todoList} />

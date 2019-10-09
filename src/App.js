@@ -3,6 +3,7 @@ import testTodoListData from './TestTodoListData.json'
 import HomeScreen from './components/home_screen/HomeScreen'
 import ItemScreen from './components/item_screen/ItemScreen'
 import ListScreen from './components/list_screen/ListScreen'
+import { runInThisContext } from 'vm';
 
 const AppScreen = {
   HOME_SCREEN: "HOME_SCREEN",
@@ -33,7 +34,7 @@ class App extends Component {
     switch(this.state.currentScreen) {
       case AppScreen.HOME_SCREEN:
         return <HomeScreen 
-        loadList={this.loadList.bind(this)} 
+        loadList={this.loadList.bind(this)}
         todoLists={this.state.todoLists} />;
       case AppScreen.LIST_SCREEN:            
         return <ListScreen
