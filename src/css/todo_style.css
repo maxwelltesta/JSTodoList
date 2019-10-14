@@ -152,6 +152,7 @@ body {
 }
 .disabled:hover {
   color: var(--swatch-neutral);
+  cursor: default;
 }
 
 /* ITEM SCREEN CONTROLS */

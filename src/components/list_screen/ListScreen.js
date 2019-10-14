@@ -19,12 +19,21 @@ export class ListScreen extends Component {
             return this.props.todoList.owner;
         }
     }
-    onNameChange = () => {
-        this.props.todoList.name = this.value;
-        this.props.setState({currentList: this.props.todoList});
+    onNameChange = (e) => {
+        if (e.target.value === "") {
+            this.props.todoList.name = "Default";
+        }
+        else {
+            this.props.todoList.name = e.target.value;
+        }
     }
-    onOwnerChange() {
-
+    onOwnerChange = (e) => {
+        if (e.target.value === "") {
+            this.props.todoList.owner = "Default";
+        }
+        else {
+            this.props.todoList.owner = e.target.value;
+        }
     }
     render() {
         return (
@@ -38,7 +47,7 @@ export class ListScreen extends Component {
                             defaultValue={this.getListName()} 
                             type="text" 
                             id="list_name_textfield"
-                            onChange={this.onNameChange.bind(this)} />
+                            onChange={this.onNameChange} />
                     </div>
                     <div id="list_details_owner_container" className="text_toolbar">
                         <span id="list_owner_prompt">Owner:</span>
@@ -49,7 +58,13 @@ export class ListScreen extends Component {
                             onChange={this.onOwnerChange} />
                     </div>
                 </div>
-                <ListItemsTable todoList={this.props.todoList} />
+                <ListItemsTable 
+                    todoList={this.props.todoList}
+                    sortByTask={this.props.sortByTask}
+                    sortByDueDate={this.props.sortByDueDate}
+                    sortByStatus={this.props.sortByStatus}
+                    loadList={this.props.loadList.bind(this, this.props.todoList)}
+                    goItemScreen={this.props.goItemScreen.bind(this)} />
             </div>
         )
     }
