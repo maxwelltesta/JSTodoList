@@ -168,6 +168,12 @@ body {
 #item_completed_checkbox {}
 #item_form_submit_button {}
 #item_form_cancel_button {}
+#item_delete_submit_button {
+  cursor: pointer;
+}
+#item_delete_cancel_button {
+  cursor: pointer;
+}
 
 /* ITEM SCREEN CLASSES */
 .item_prompt {

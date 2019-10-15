@@ -129,6 +129,7 @@ class App extends Component {
   deleteList() {
     let newLists = this.state.todoLists;
     newLists.splice(this.state.currentList.key, 1);
+    newLists.map((item, i) => item.key=i);
     this.setState({
       currentList: null,
       todoLists: newLists
@@ -150,7 +151,8 @@ class App extends Component {
         sortByTask={this.sortByTask.bind(this)}
         sortByDueDate={this.sortByDueDate.bind(this)}
         sortByStatus={this.sortByStatus.bind(this)}
-        goItemScreen={this.goItemScreen.bind(this)} />;
+        goItemScreen={this.goItemScreen.bind(this)} 
+        deleteList={this.deleteList.bind(this)}/>;
       case AppScreen.ITEM_SCREEN:
         return <ItemScreen
         currentScreen={this.state.currentScreen}
