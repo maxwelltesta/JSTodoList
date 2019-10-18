@@ -46,7 +46,8 @@ body {
 #list_heading {}
 #list_trash {
   position: absolute;
-  left: 96%;
+  right: 10px;
+  top: 5px;
   text-align: right;
 }
 #list_details_container {

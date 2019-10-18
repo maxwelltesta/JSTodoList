@@ -4,6 +4,7 @@ import HomeScreen from './components/home_screen/HomeScreen'
 import ItemScreen from './components/item_screen/ItemScreen'
 import ListScreen from './components/list_screen/ListScreen'
 
+
 const AppScreen = {
   HOME_SCREEN: "HOME_SCREEN",
   LIST_SCREEN: "LIST_SCREEN",
@@ -16,6 +17,8 @@ class App extends Component {
     todoLists: testTodoListData.todoLists,
     currentList: null,
     currentItem: null
+    // new jsTPS object
+    // Make methods and classes for all the possible ctrl y+z
   }
 
   goHome = () => {
